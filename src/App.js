@@ -1,10 +1,17 @@
-import logo from './logo.svg';
+
 import './App.css';
+import TodoList from './components/Card';
+//import List from './components/ListCompo';
+
 
 function App() {
   return (
     <div className="App">
-      <h1>A</h1>
+      <h1>trello clone</h1>
+      <TodoList/>
+      
+      {/* <List/> */}
+      
     </div>
   );
 }

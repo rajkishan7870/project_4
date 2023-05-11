@@ -15,19 +15,47 @@ install react-beautiful-dnd : npm i react-beaytiful-dnd
 
 Data Structure : 
 ```json
+todos :
+    {
 
-{
-
-  "List": {
-    title: "dummy data",
-    id : "unique",
-    time : "2 pm"
-    Task: [{
-      id : "unique"
-      title : "dummy"
-      description:"dummy data",
-      Activity: "progress time"
-      }]
-}
+      "List": {
+        title: "todo",
+        id : "unique",
+        time : "2 pm"
+        Task: [{
+          id : "unique"
+          title : "dummy"
+          description:"dummy data",
+          Activity: "progress time"
+          }]
+          
+       }
+       
+       "List": {
+        title: "In progress",
+        id : "unique",
+        time : "2 pm"
+        Task: [{
+          id : "unique"
+          title : "dummy"
+          description:"dummy data",
+          Activity: "progress time"
+          }]
+          
+       }
+       
+       "List": {
+        title: "completed",
+        id : "unique",
+        time : "2 pm"
+        Task: [{
+          id : "unique"
+          title : "dummy"
+          description:"dummy data",
+          Activity: "progress time"
+          }]
+          
+       }
+    }
 
 ```

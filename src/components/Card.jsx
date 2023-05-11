@@ -34,10 +34,13 @@ function CardList() {
   };
 
   return (
+    
     <div className="container">
+      <input type="color" onChange={(event) => document.body.style.backgroundColor = event.target.value} />
+
       {cards.map((card, index) => (
         <Card key={index} className="card">
-          <CardContent>
+          <CardContent style={{height:"20%"}}>
             <input              
               value={card.title}
               onChange={(event) => handleCardTitleChange(event, index)}
@@ -45,7 +48,7 @@ function CardList() {
             />
             {card.items.map((item, itemIndex) => (
               <div key={itemIndex}>
-                <TextField                 
+                <TextField  InputProps={{ disableUnderline: true }}            
                   value={item}
                   onChange={(event) =>
                     handleItemChange(event, index, itemIndex)
@@ -71,7 +74,7 @@ function CardList() {
           </CardContent>
         </Card>
       ))}
-      <Button  onClick={handleAddCard}>+Add a Card</Button>
+      <Button style={{padding:"25px", height:"50%", backgroundColor:"whitesmoke"}} onClick={handleAddCard}>+Add a Card</Button>
     </div>
   );
 }

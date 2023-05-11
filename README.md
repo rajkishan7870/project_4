@@ -5,13 +5,13 @@ Description : To develop a Kanban React application, need Node.js and npm instal
 
 Getting Started:
 
-installed react application : npx create-react-app kan_ban
+install react application : npx create-react-app kan_ban
 
 install react-redux and redux-toolkit
 
 install mui library and mui icon
 
-installed react-beautiful-dnd npm i react-beautiful-dnd 
+install react-beautiful-dnd : npm i react-beaytiful-dnd 
 
 Data Structure : 
 ```json
@@ -20,15 +20,13 @@ Data Structure :
 
   "List": {
     title: "dummy data",
-    task: "dummy data",
+    id : "unique",
     time : "2 pm"
-    },
     Task: [{
       id : "unique"
       title : "dummy"
       description:"dummy data",
       Activity: "progress time"
-      id :"dummy"
       }]
 }
 

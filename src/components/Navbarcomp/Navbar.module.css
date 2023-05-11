@@ -1,0 +1,19 @@
+.parentContFirst{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.parentContSecond{
+    display: inline;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-right: 40px;
+    gap: 30px;
+}
+
+.parent{
+    display: flex;;
+    justify-content: space-between;
+}

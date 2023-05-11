@@ -1,5 +1,6 @@
 
 import './App.css';
+import Home from './pages/Home/Home';
 import CardList from './components/Card';
 
 
@@ -11,7 +12,7 @@ function App() {
       <CardList/>
     
       
-      
+      <Home/>
     </div>
   );
 }

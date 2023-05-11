@@ -28,19 +28,14 @@ Data Structure :
 {
 
   "List": {
-    "title": "dummy data",
-    "task": "dummy data",
-    },
-    "Task": [
-      "title",
-      "description":"dummy data",
-      "Activity":{
-      "id":"dummy data"
-      "id":"time and date"
-      }
-    
-    ]
-  }
+    title: "dummy data",
+    id : "unique",
+    time : "2 pm"
+    Task: [{
+      id : "unique"
+      title : "dummy"
+      description:"dummy data",
+      Activity: "progress time"
+      }]
 }
-
 ```

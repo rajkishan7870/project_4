@@ -1,76 +1,79 @@
-import { useState } from "react";
-import {Card,CardContent,Button, TextField, IconButton} from "@material-ui/core";
+import React, { useState } from "react";
+import {Card,CardContent,Button,TextField,IconButton} from "@material-ui/core";
+import "./Card.css";
 
-function TodoList() {
-  const [tasks, setTasks] = useState([]);
-  const [inputValue, setInputValue] = useState("");
-  const[inputField, setInputField] =useState(false)
+function CardList() {
+  const [cards, setCards] = useState([]);
 
-  function handleClick() {
-    setInputField(true);
-  }
-
-  const handleAddTask = () => {
-    if (inputValue.trim() !== "") {
-      setTasks([...tasks, inputValue]);
-      setInputValue("");
-    }
+  const handleAddCard = () => {
+    setCards([...cards, { title: "", items: [] }]);
   };
-  const handleInputChange = (event) => {
-    setInputValue(event.target.value);
+
+  const handleCardTitleChange = (event, index) => {
+    const updatedCards = [...cards];
+    updatedCards[index].title = event.target.value;
+    setCards(updatedCards);
   };
-  const handleRemoveTask = (indexToRemove) => {
-    const filteredTasks = tasks.filter(
-      (task, index) => index !== indexToRemove
-    );
-    setTasks(filteredTasks);
+
+  const handleAddItem = (index) => {
+    const updatedCards = [...cards];
+    updatedCards[index].items.push("");
+    setCards(updatedCards);
+  };
+
+  const handleRemoveTask = (index) => {
+    const updatedCards = [...cards];
+    updatedCards.splice(index, 1);
+    setCards(updatedCards);
+  };
+
+  const handleItemChange = (event, cardIndex, itemIndex) => {
+    const updatedCards = [...cards];
+    updatedCards[cardIndex].items[itemIndex] = event.target.value;
+    setCards(updatedCards);
   };
 
   return (
-    <div>
-      <div style={{ display: "flex", alignItems: "center" }}>
-        {/* <input placeholder='+ add task' onClick={handleClick}/> */}
-        <div style={{ display: "flex", flexWrap: "wrap" , justifyContent:"flex-start"}}>
-       
-        {tasks.map((task, index) => (
-          <Card key={index} style={{ margin: "5px", position: "relative", padding:"1% 3% 0.01%" , width:'25%'}}>
-             
-            <CardContent>{task}</CardContent>
-            <input
-          value={inputValue}
-          onChange={handleInputChange}
-          placeholder="+ Add a list"
-          style={{ marginRight: "12px" }} 
-          onClick={handleClick}
-        /> 
-          <Button variant="contained" color="primary" size="small" onClick={handleAddTask}>
-          Add Card
-        </Button>
-
-            <IconButton aria-label="remove task" onClick={() => handleRemoveTask(index)}
-              style={{position: "relative", marginLeft: "15rem", top: "-60px",  right: "5px" }}>
+    <div className="container">
+      {cards.map((card, index) => (
+        <Card key={index} className="card">
+          <CardContent>
+            <input              
+              value={card.title}
+              onChange={(event) => handleCardTitleChange(event, index)}
+              hidden
+            />
+            {card.items.map((item, itemIndex) => (
+              <div key={itemIndex}>
+                <TextField                 
+                  value={item}
+                  onChange={(event) =>
+                    handleItemChange(event, index, itemIndex)
+                  }
+                />
+              </div>
+            ))}
+            <Button
+              variant="contained"
+              color="primary"
+              size="small"
+              onClick={() => handleAddItem(index)}
+            >
+              Add Item
+            </Button>
+            <IconButton
+              aria-label="remove task"
+              onClick={() => handleRemoveTask(index)}
+              style={{ marginLeft: "10rem", top: "0px", right: "45%" }}
+            >
               X
             </IconButton>
-
-          </Card>
-        ))}
-      </div>
-        <TextField
-          value={inputValue}
-          onChange={handleInputChange}
-          placeholder="+ Add a list"
-          style={{ marginRight: "12px" }} 
-          onClick={handleClick}
-        /> 
-      
-       {inputField? <Button variant="contained" color="primary"  size="small" onClick={handleAddTask}>
-          Add Another List
-        </Button>: null}
-      </div>
-      
-     
+          </CardContent>
+        </Card>
+      ))}
+      <Button  onClick={handleAddCard}>+Add a Card</Button>
     </div>
   );
 }
 
-export default TodoList;
+export default CardList;

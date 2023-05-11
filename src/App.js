@@ -1,16 +1,16 @@
 
 import './App.css';
-import TodoList from './components/Card';
-//import List from './components/ListCompo';
+import CardList from './components/Card';
+
 
 
 function App() {
   return (
-    <div className="App">
-      <h1>trello clone</h1>
-      <TodoList/>
+    <div>
       
-      {/* <List/> */}
+      <CardList/>
+    
+      
       
     </div>
   );

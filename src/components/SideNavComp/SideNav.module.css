@@ -1,0 +1,34 @@
+.sidenav{
+    width: 250px;
+    height: 100vh;
+    background: #e365af;
+}
+/* .navwrap{
+    background-color: #de2626;
+} */
+
+hr{
+    margin-bottom: 20px;
+    /* width: 80%; */
+}
+.icons{
+    display: flex;
+    /* margin-top: 20px; */
+    /* justify-content: space-between; */
+    padding: 5px;
+    margin: 2px 19px ;
+    background-color: #e365af;
+}
+.icons:hover{
+    cursor: pointer;
+    background-color: #b31e75;
+}
+svg{
+    /* padding: 10px; */
+    margin: 3px 10px;
+    background-color: #e365af;
+}
+.heading{
+    padding: 10px;
+    background-color: #e365af;
+}

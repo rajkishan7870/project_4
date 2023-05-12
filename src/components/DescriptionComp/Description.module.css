@@ -1,0 +1,46 @@
+.container{
+    display: flex;
+    gap: 1rem;
+    flex-direction: row;
+}
+.edit{
+    height: 1.8rem;
+    width: 3.4rem;
+    margin-top: 1.8rem;
+    font-size: 1.2rem;
+    border: none;
+}
+.head{
+    font-size: 1.5rem;
+    margin-top: 1.8rem;
+}
+.save{
+    margin-top: 1rem;
+    margin-left: 1.5rem;
+    width: 3.4rem;
+    height: 1.8rem;
+    font-weight: 500;
+    font-size: 1rem;
+    background-color:#0079bf;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.save:hover{
+background-color: #0c75b2;
+}
+
+.cancel{
+    margin-top: 1rem;
+    margin-left: 1.5rem;
+    width: 3.8rem;
+    height: 1.8rem;
+    font-weight: 500;
+    font-size: 1rem;
+  
+    border: none;
+    
+    cursor: pointer;
+    border-radius: 5px;
+}

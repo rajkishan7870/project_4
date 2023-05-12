@@ -1,0 +1,25 @@
+*body{
+    background-color: #091e420a;
+}
+
+
+.input{
+    width: 30rem;
+    margin-left: 10px;
+    font-size: 1.3rem;
+    border: none ;
+    background: #0000;
+
+}
+input:focus{
+    border: 2px solid blue;
+}
+.titlepara{
+    margin-left: 2rem;
+    margin-top: 2px;
+    display: flex;
+flex-direction: row;
+}
+.title{
+    display: flex;
+}

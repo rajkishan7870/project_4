@@ -35,7 +35,9 @@ function CardList() {
 
   return (
     <div className="container">
+      
       {cards.map((card, index) => (
+        <div className="containerInside">
         <Card key={index} className="card">
           <CardContent>
             <input              
@@ -70,11 +72,13 @@ function CardList() {
             </IconButton>
           </CardContent>
         </Card>
+        </div>
       ))}
       <Button sx={{
         textTransform : "none"
       }} onClick={handleAddCard}>+Add a Card</Button>
-    </div>
+      </div>
+    
   );
 }
 

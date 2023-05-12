@@ -71,7 +71,9 @@ function CardList() {
           </CardContent>
         </Card>
       ))}
-      <Button  onClick={handleAddCard}>+Add a Card</Button>
+      <Button sx={{
+        textTransform : "none"
+      }} onClick={handleAddCard}>+Add a Card</Button>
     </div>
   );
 }

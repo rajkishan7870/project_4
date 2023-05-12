@@ -16,9 +16,15 @@ export default function Home() {
       <div>
         <SideNav/>
       </div>
-      <div className={style.card}>
-        <CardList/>
-        <DescriptionComp/>
+      
+      <div className={style.home}>
+    
+      <img src ="https://media.istockphoto.com/id/1320306462/video/4k-abstract-luxury-black-grey-gradient-backgrounds-with-diagonal-golden-metallic-stripes.jpg?s=640x640&k=20&c=zwBGZfYlbYVMNcnJirViOlEOFHLkPJeg9z-HvfLr77Y=" alt = ""/>
+        <div className={style.card}>
+          <CardList/>
+          <DescriptionComp/>
+        </div>
+        
       </div>
       </div>
       

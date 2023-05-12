@@ -28,14 +28,13 @@ export default function Descriptioncomp() {
 
   return (
     <div>
-      <Button onClick={handleClickOpen()}>scroll=paper</Button>
+      <Button onClick={handleClickOpen()}>Card Title</Button>
      
       <Dialog
         open={open}
         onClose={handleClose}
       sx={{backgroundColor:"#091e420a"}}
-        
-      >
+        >
        
         <DialogContent   sx={{backgroundColor:"#091e420a"}} >
         <span className={styles.title}><SubtitlesIcon /> <input value={update} type='text' onChange={(e)=>setUpdate(e.target.value)} className={styles.input}/> </span>

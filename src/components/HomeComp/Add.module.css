@@ -1,0 +1,25 @@
+.parent{
+    display: flex;
+    flex-direction: column;
+}
+.cancel{
+    cursor: pointer;
+}
+.add{
+    border: 1px solid gray;
+    background-color: lightgray;
+    width: 250px;
+    border-radius: 10px;
+    box-sizing: border-box;
+    padding: 3%;
+    
+}
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.btn{
+    display: flex;
+    gap: 10px;
+}

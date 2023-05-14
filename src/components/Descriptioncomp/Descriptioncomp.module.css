@@ -1,14 +1,15 @@
 *body{
-    background-color: #091e420a;
+    background-color: #0000003d;
 }
 
 
 .input{
-    width: 30rem;
+    width: 26rem;
     margin-left: 10px;
     font-size: 1.3rem;
     border: none ;
     background: #0000;
+    
 
 }
 input:focus{
@@ -22,4 +23,5 @@ flex-direction: row;
 }
 .title{
     display: flex;
+    margin-top: -2rem;
 }

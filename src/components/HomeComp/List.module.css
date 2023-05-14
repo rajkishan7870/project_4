@@ -1,0 +1,29 @@
+.parent{
+    display: flex;
+    width: 100%;
+    gap: 10px;
+    overflow-x: scroll;   
+    
+}
+.parent::-webkit-scrollbar {
+    display: none;
+  }
+.list{
+    display: flex;
+    min-width: 20%;
+    height: fit-content;
+    padding: 5%;  
+}
+
+.parentList{
+    background-color: gray;
+    border-radius: 5px;
+    padding: 1%;
+}
+.addCard{
+    margin-top: 10px;
+}
+.card{
+    margin-top: 10px ;
+    cursor: pointer;
+}

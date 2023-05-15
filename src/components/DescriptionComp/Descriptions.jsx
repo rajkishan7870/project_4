@@ -1,14 +1,14 @@
 import React from 'react'
 import SubjectIcon from '@mui/icons-material/Subject';
 import { useState } from 'react';
-import styles from './Description.module.css'
+import styles from './Descriptions.module.css'
 import { AiOutlineInfoCircle } from 'react-icons/ai';
 import { Stack } from '@mui/material';
 import TextField from '@mui/material/TextField';
 
 
-function Description() {
-const [description,setDescription]=useState("")
+const Descriptions=()=> {
+const [descriptionvalue,setDescriptionvalue]=useState("")
 const [edit, setEdit] = useState(false);
 
 
@@ -31,19 +31,19 @@ const handleCancelEdit = () => {
           multiline
         rows="7"
     
-        value={description}
-        onChange={(e)=>setDescription(e.target.value)}
+        value={descriptionvalue}
+        onChange={(e)=>setDescriptionvalue(e.target.value)}
       />
      }
       </Stack>
       {edit && <button className={styles.save} onClick={() => setEdit(!edit)}>Save</button>}
       {edit && <button className={styles.cancel} onClick={handleCancelEdit}>Cancel</button>}
       <div className={styles.descriptionContent}>
-                {edit ? "" : description}
+                {edit ? "" : descriptionvalue}
             </div>
         </div>
         </div>
   )
 }
 
-export default Description;
+export default Descriptions;

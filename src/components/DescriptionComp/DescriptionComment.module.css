@@ -1,0 +1,73 @@
+.maincontainer{
+    display: flex;
+    gap: 1rem;
+}
+.mainbtn{
+    margin-left: 16rem;
+    margin-top: 2rem;
+    height: 1.6rem;
+    border: none;
+    cursor: pointer;
+    background-color: #091e420a;
+    font-weight: 400;
+}
+.mainbtn:hover{
+    background-color: lightgrey;
+}
+.commentinput{
+    width:80%;
+height: 1rem;
+    background-color: white;
+    border: none;
+    border-radius: 5px;
+    padding:0.6rem;
+   
+   
+}
+.activity{
+    font-size: 1.5rem;
+    margin-top: 1.8rem;
+}
+.commentdata{
+    display: flex;
+    margin-left: 1rem;
+    height:4.5vh
+}
+.save{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    margin-left: 1.2rem;
+    border: none;
+    height: 1.5rem;
+    width: 3rem;
+}
+.commentinputs{
+    border: none;
+    background-color: #0000003d;
+    width:80%;
+    height: 1rem;
+ 
+        border: none;
+        border-radius: 5px;
+      padding: 0.5rem;
+      margin-left: 1rem;
+}
+.delete{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    margin-left: 1.2rem;
+    border: none;
+    height: 1.5rem;
+    width: 3rem;
+}
+.comments{
+    width:80%;
+    height: 1rem;
+        background-color: white;
+        border: none;
+        border-radius: 5px;
+        padding:0.6rem;
+        margin-left: 1rem;
+        background-color: #0000003d;
+        margin-bottom: 1.5rem;
+}

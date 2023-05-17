@@ -2,10 +2,12 @@ import React from "react";
 import style from "./Background.module.css";
 import { useDispatch } from "react-redux";
 import { changeBackground } from "../../redux/slice";
+import { useNavigate } from "react-router";
 
 export default function Background() {
 
     const dispatch = useDispatch();
+    const navigate = useNavigate();
     
   const background = [
     {
@@ -53,6 +55,7 @@ export default function Background() {
   function handleBackground(index){
         let data=background[index].image
         dispatch(changeBackground({image : data}))
+        navigate("/")
   }
 
 

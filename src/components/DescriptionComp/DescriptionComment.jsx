@@ -64,8 +64,8 @@ localStorage.setItem('comments',JSON.stringify(removeData))
        {
          comments.map((ele)=>{
             return (
-            <>
-            <div key={ele.id} className={styles.commments}>
+           <div key={ele.id} >
+            <div  className={styles.commments}>
             <input type='text'  value={ele.name} className={styles.commentinputs}  />
             </div>
            <div className={styles.buttons}>
@@ -74,7 +74,7 @@ localStorage.setItem('comments',JSON.stringify(removeData))
            {/* <button className={styles.delete} onClick={()=>handleEdit(index)}>Edit</button> */}
 
            </div>
-            </>
+            </div>
 
             )
          })

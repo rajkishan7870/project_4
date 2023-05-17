@@ -26,6 +26,7 @@ img{
 
 .content {
   display: flex;
+  height: 100%;
 }
 
 .home{
@@ -33,4 +34,9 @@ img{
     position: relative;
     z-index: 1;
     top: 10%;
+}
+.parent{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }

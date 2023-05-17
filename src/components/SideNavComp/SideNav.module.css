@@ -1,6 +1,7 @@
 .sidenav{
     width: 250px;
     height: 100vh;
+    margin-left: 0;
     background-color: rgb(89, 109, 62)
 }
 /* .navwrap{
@@ -24,7 +25,7 @@ hr{
     cursor: pointer;
     background-color: gray;
 }
-svg{
+ svg{
     /* padding: 10px; */
     margin: 3px 10px;
     /* background-color: #e365af; */

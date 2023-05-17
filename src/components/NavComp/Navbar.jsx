@@ -7,8 +7,14 @@ import style from './Navbar.module.css';
 import NotificationsActiveIcon from '@mui/icons-material/NotificationsActive';
 import InfoIcon from '@mui/icons-material/Info';
 import TipsAndUpdatesIcon from '@mui/icons-material/TipsAndUpdates';
+import { useNavigate } from 'react-router-dom';
 
 export default function Navbar() {
+
+  const navigate = useNavigate();
+  function handleBackground(){
+    navigate("/background")
+  }
 
   return (
     <div className={style.parent}>
@@ -19,7 +25,7 @@ export default function Navbar() {
         <Basicmenu name={"Recent"}/>
         <Basicmenu name={"Starred"}/>
         <Basicmenu name={"Templates"}/>
-        <Button sx={{color : "white", textTransform : "none"}}>Create</Button>
+        <Button sx={{color : "white", textTransform : "none"}} onClick={handleBackground} >Background image</Button>
 
       </div>
 

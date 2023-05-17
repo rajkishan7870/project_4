@@ -4,8 +4,7 @@ import { Button, Card, CardContent, CardActions } from "@mui/material";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import styles from "./Descriptioncomp.module.css";
 import SubtitlesIcon from "@mui/icons-material/Subtitles";
-import Description from "./Description";
-import DescriptionActivity from "./DescriptionActivity";
+import Description from "./Descriptions";
 import DescriptionComment from "./DescriptionComment";
 import { Navigate, useParams } from "react-router-dom";
 
@@ -24,6 +23,7 @@ export default function Descriptioncomp() {
           backgroundColor: "#091e420a",
           width: "50%",
           marginLeft: "20%",
+          paddingTop : "2%"
         }}
       >
         <CardContent sx={{ backgroundColor: "#091e420a" }}>
@@ -46,7 +46,7 @@ export default function Descriptioncomp() {
           </p>
 
           <Description />
-          <DescriptionActivity />
+         
           <DescriptionComment />
         </CardContent>
         <CardActions>

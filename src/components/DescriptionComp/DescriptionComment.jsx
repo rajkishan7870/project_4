@@ -6,11 +6,31 @@ import TocIcon from '@mui/icons-material/Toc';
 function DescriptionComment() {
     const [commentData,setCommentData]=useState('');
     const [comments,setComment]=useState(JSON.parse(localStorage.getItem('comments')) || [])
-    const [showComment,setShowComment]=useState(false)
+
     const [activity,setActivity]=useState(false)
+    const [edit,setEdit] =useState(null)
+    const[toggle,setToggle]=useState(true)
 
 const handelSave=(e)=>{
 e.preventDefault()
+if(commentData==="" ){
+  alert("plz fill the input field")
+  return;
+  // setCommentData("please fill the input field")
+}else if(commentData && !toggle){
+  setComment(
+comments.map((elem)=>{
+  if(elem.id=== edit){
+    return{...elem,name:commentData}
+  }
+  return elem;
+})
+
+  )
+  setCommentData('')
+setEdit(null)
+setToggle(true)
+}
 let uniquedata={id:new Date().getTime().toString(),name:commentData}
 let data=[...comments,uniquedata];
 setComment(data);
@@ -26,13 +46,18 @@ let removeData=comments.filter((ele)=>{
 setComment(removeData)
 localStorage.setItem('comments',JSON.stringify(removeData))
 }
-// const handleEdit=(data)=>{
-// let edittask=comments.find((element,index)=>{
-//   return index===data;
-// })
+
+const handleEdit=(id)=>{
+let edittask=comments.find((ele)=>{
+  return ele.id===id;
+})
+console.log(edittask)
 // setComment(edittask)
 // localStorage.setItem('comments',JSON.stringify(edittask))
-// }
+setCommentData(edittask.name)
+setEdit(id)
+setToggle(false)
+}
 
 
   return (
@@ -47,20 +72,19 @@ localStorage.setItem('comments',JSON.stringify(removeData))
    </div>
  </div>
     <div>
-        {
-          showComment ? 
+        
           <>
           <div className={styles.commentdata}> 
         <input className={styles.commentinput} type='text' placeholder='Write a comment' value={commentData} onChange={(e)=>setCommentData(e.target.value)} />
 
           </div>
-           <button className={styles.save} onClick={handelSave}>Save</button>
+
+{
+  toggle ?<button className={styles.save} onClick={handelSave}>Save</button>:<button className={styles.save} onClick={handelSave}>Save edit</button>
+}
+
            </>
-           :
-           <div > 
-              <input type='text' placeholder='Write a comment...' onClick={() => setShowComment(!showComment)} className={styles.comments} />
-           </div>
-        }
+       
        {
          comments.map((ele)=>{
             return (
@@ -71,7 +95,7 @@ localStorage.setItem('comments',JSON.stringify(removeData))
            <div className={styles.buttons}>
          
            <button className={styles.delete} onClick={()=>handleDelete(ele.id)}>Delete</button>
-           {/* <button className={styles.delete} onClick={()=>handleEdit(index)}>Edit</button> */}
+           <button className={styles.delete} onClick={()=>handleEdit(ele.id)}>Edit</button>
 
            </div>
             </>

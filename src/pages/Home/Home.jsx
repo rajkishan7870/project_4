@@ -9,7 +9,7 @@ export default function Home() {
   const selector = useSelector((store) => store.listSlice.background);
 
   return (
-    <div>
+    <div className={style.parent}>
       <div className={style.nav}>
         <Navbar />
       </div>
@@ -19,11 +19,11 @@ export default function Home() {
         </div>
 
         <div className={style.home}>
-          <img
+          <img className={selector.length>0 ? style.img : style.initial}
             src={
               selector.length > 0
                 ? selector[selector.length - 1].image
-                : "https://media.istockphoto.com/id/1320306462/video/4k-abstract-luxury-black-grey-gradient-backgrounds-with-diagonal-golden-metallic-stripes.jpg?s=640x640&k=20&c=zwBGZfYlbYVMNcnJirViOlEOFHLkPJeg9z-HvfLr77Y="
+                : "https://images.pexels.com/photos/696680/pexels-photo-696680.jpeg?auto=compress&cs=tinysrgb&w=600"
             }
             alt=""
           />

@@ -21,7 +21,7 @@ height: 1rem;
     border: none;
     border-radius: 5px;
     padding:0.6rem;
-   
+   margin-left: 1rem;
    
 }
 .activity{
@@ -36,29 +36,40 @@ height: 1rem;
 .save{
     margin-top: 1rem;
     margin-bottom: 1rem;
-    margin-left: 1.2rem;
+    margin-left: 2.3rem;
     border: none;
     height: 1.5rem;
-    width: 3rem;
+    width: 4rem;
+    background-color: #0079bf;
+    color: white;
+    cursor:pointer;
+}
+.save:hover{
+    background-color: #025a8e;
 }
 .commentinputs{
     border: none;
     background-color: #0000003d;
     width:80%;
     height: 1rem;
- 
+
         border: none;
         border-radius: 5px;
       padding: 0.5rem;
-      margin-left: 1rem;
+      margin-left: 2rem;
 }
 .delete{
     margin-top: 1rem;
     margin-bottom: 1rem;
-    margin-left: 1.2rem;
+    margin-left: 1rem;
     border: none;
     height: 1.5rem;
     width: 3rem;
+    cursor: pointer;
+    text-decoration: underline;
+}
+.delete:hover{
+background-color: lightgrey;
 }
 .comments{
     width:80%;
@@ -70,4 +81,26 @@ height: 1rem;
         margin-left: 1rem;
         background-color: #0000003d;
         margin-bottom: 1.5rem;
+}
+.time{
+    margin-left: 9rem;
+    margin-top: -2.3rem;
+}
+.buttons{
+    margin-bottom: 2rem;
+    margin-left: 1rem;
+}
+.edit{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    margin-left: 2.3rem;
+    border: none;
+    height: 1.5rem;
+    width: 5rem;
+    background-color: #0079bf;
+    color: white;
+   cursor: pointer;
+}
+.edit:hover{
+    background-color: #025a8e;
 }

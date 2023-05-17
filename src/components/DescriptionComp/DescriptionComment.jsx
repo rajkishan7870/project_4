@@ -2,6 +2,26 @@ import React from 'react'
 import { useState } from 'react'
 import styles from './DescriptionComment.module.css'
 import TocIcon from '@mui/icons-material/Toc';
+import Avatar from '@mui/material/Avatar';
+import Stack from '@mui/material/Stack';
+
+const getTime = () => {
+  const timeElapsed = new Date() - new Date().getTime();
+  const seconds = Math.floor(timeElapsed / 1000);
+  const minutes = Math.floor(seconds / 60);
+  const hours = Math.floor(minutes / 60);
+  const days = Math.floor(hours / 60);
+
+  if (days > 0) {
+    return `${days} day${days > 1 ? "s" : ""} ago`;
+  } else if (hours > 0) {
+    return `${hours} hours${hours > 1 ? "s" : ""} ago`;
+  } else if (minutes > 0) {
+    return `${minutes} minutes${minutes > 1 ? "s" : ""} ago`;
+  } else {
+    return `Few seconds ago`;
+  }
+};
 
 function DescriptionComment() {
     const [commentData,setCommentData]=useState('');
@@ -19,11 +39,11 @@ if(commentData==="" ){
   // setCommentData("please fill the input field")
 }else if(commentData && !toggle){
   setComment(
-comments.map((elem)=>{
-  if(elem.id=== edit){
-    return{...elem,name:commentData}
+comments.map((ele)=>{
+  if(ele.id=== edit){
+    return{...ele,name:commentData}
   }
-  return elem;
+  return ele;
 })
 
   )
@@ -31,7 +51,7 @@ comments.map((elem)=>{
 setEdit(null)
 setToggle(true)
 }
-let uniquedata={id:new Date().getTime().toString(),name:commentData}
+let uniquedata={id:new Date().getTime().toString(),name:commentData, checkTime: getTime(),}
 let data=[...comments,uniquedata];
 setComment(data);
 localStorage.setItem('comments',JSON.stringify(data))
@@ -80,7 +100,7 @@ setToggle(false)
           </div>
 
 {
-  toggle ?<button className={styles.save} onClick={handelSave}>Save</button>:<button className={styles.save} onClick={handelSave}>Save edit</button>
+  toggle ?<button className={styles.save} onClick={handelSave}>Save</button>:<button className={styles.edit} onClick={handelSave}>Save edit</button>
 }
 
            </>
@@ -93,20 +113,20 @@ setToggle(false)
             <input type='text'  value={ele.name} className={styles.commentinputs}  />
             </div>
            <div className={styles.buttons}>
-         
-           <button className={styles.delete} onClick={()=>handleDelete(ele.id)}>Delete</button>
+           <Stack direction="row" spacing={2} sx={{marginTop:"-2.2rem",marginLeft:"-2rem"}}>
+      <Avatar alt="Remy Sharp" src="https://png.pngtree.com/png-vector/20220709/ourmid/pngtree-businessman-user-avatar-wearing-suit-with-red-tie-png-image_5809521.png" />
+    </Stack>
+          <button className={styles.delete} onClick={()=>handleDelete(ele.id)}>Delete</button>
            <button className={styles.delete} onClick={()=>handleEdit(ele.id)}>Edit</button>
+           <p className={styles.time}>{ele. checkTime}</p>
 
            </div>
             </>
-
-            )
+             )
          })
 
        }
-
-
-    </div>
+      </div>
     </>
   )
 }

@@ -7,7 +7,7 @@ import style from "./List.module.css";
 import { useNavigate } from "react-router";
 
 export default function List() {
-  const selector = useSelector((store) => store.listSlice);
+  const selector = useSelector((store) => store.listSlice.list);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 

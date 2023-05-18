@@ -1,19 +1,22 @@
 import React from "react";
 import { useState } from "react";
-import { Button, Card, CardContent, CardActions } from "@mui/material";
+import { Button, Card, CardContent } from "@mui/material";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import styles from "./Descriptioncomp.module.css";
 import SubtitlesIcon from "@mui/icons-material/Subtitles";
-import Description from "./Descriptions";
+import Descriptions from "./Descriptions";
 import DescriptionComment from "./DescriptionComment";
-import { Navigate, useParams } from "react-router-dom";
-
+import ClearIcon from '@mui/icons-material/Clear';
+import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 export default function Descriptioncomp() {
-  const [update, setUpdate] = useState("");
+  const navigate=useNavigate()
   const params = useParams();
+  const [update, setUpdate] = useState([params.id]);
+ 
 
   function handleClose() {
-    Navigate("/");
+    navigate("/");
   }
   return (
     <div>
@@ -21,16 +24,18 @@ export default function Descriptioncomp() {
         onClose={handleClose}
         sx={{
           backgroundColor: "#091e420a",
-          width: "50%",
-          marginLeft: "20%",
-          paddingTop : "2%"
+          width: "45%",
+          marginLeft: "25%",
+          marginTop:"2rem"
         }}
       >
         <CardContent sx={{ backgroundColor: "#091e420a" }}>
+        <Button sx={{marginLeft:"92%",}} onClick={handleClose}><ClearIcon /></Button>
+
           <span className={styles.title}>
             <SubtitlesIcon />{" "}
             <input
-              value={params.id}
+              value={update}
               type="text"
               onChange={(e) => setUpdate(e.target.value)}
               className={styles.input}
@@ -45,13 +50,11 @@ export default function Descriptioncomp() {
             <VisibilityIcon sx={{ fontSize: "medium", marginLeft: "8px" }} />
           </p>
 
-          <Description />
-         
+          <Descriptions />
+        
           <DescriptionComment />
         </CardContent>
-        <CardActions>
-          <Button onClick={handleClose}>Cancel</Button>
-        </CardActions>
+ 
       </Card>
     </div>
   );

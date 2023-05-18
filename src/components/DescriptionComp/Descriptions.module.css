@@ -44,3 +44,7 @@ background-color: #0c75b2;
     cursor: pointer;
     border-radius: 5px;
 }
+.descriptionContent{
+    margin-left: 3.2rem;
+    font-size: 1.2rem;
+}

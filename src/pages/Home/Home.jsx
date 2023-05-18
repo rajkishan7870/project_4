@@ -23,7 +23,7 @@ export default function Home() {
             src={
               selector.length > 0
                 ? selector[selector.length - 1].image
-                : "https://images.pexels.com/photos/696680/pexels-photo-696680.jpeg?auto=compress&cs=tinysrgb&w=600"
+                : "https://images.pexels.com/photos/907485/pexels-photo-907485.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
             }
             alt=""
           />

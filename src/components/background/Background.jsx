@@ -5,10 +5,9 @@ import { changeBackground } from "../../redux/slice";
 import { useNavigate } from "react-router";
 
 export default function Background() {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-    const dispatch = useDispatch();
-    const navigate = useNavigate();
-    
   const background = [
     {
       name: "image1",
@@ -23,12 +22,12 @@ export default function Background() {
     {
       name: "image3",
       image:
-        "https://images.pexels.com/photos/399160/pexels-photo-399160.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "https://images.pexels.com/photos/713644/pexels-photo-713644.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     },
     {
       name: "image4",
       image:
-        "https://images.pexels.com/photos/1072179/pexels-photo-1072179.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "https://images.pexels.com/photos/1233414/pexels-photo-1233414.jpeg?auto=compress&cs=tinysrgb&w=600",
     },
     {
       name: "image5",
@@ -38,7 +37,7 @@ export default function Background() {
     {
       name: "image6",
       image:
-        "https://images.pexels.com/photos/1227511/pexels-photo-1227511.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "https://images.pexels.com/photos/1042152/pexels-photo-1042152.jpeg?auto=compress&cs=tinysrgb&w=600",
     },
     {
       name: "image7",
@@ -48,23 +47,42 @@ export default function Background() {
     {
       name: "image8",
       image:
+        "https://images.pexels.com/photos/14833456/pexels-photo-14833456.jpeg?auto=compress&cs=tinysrgb&w=600",
+    },
+    {
+      name: "image9",
+      image:
         "https://images.pexels.com/photos/960137/pexels-photo-960137.jpeg?auto=compress&cs=tinysrgb&w=600",
+    },
+    {
+      name: "image10",
+      image:
+        "https://images.pexels.com/photos/531910/pexels-photo-531910.jpeg?auto=compress&cs=tinysrgb&w=600",
+    },
+    {
+      name: "image11",
+      image:
+        "https://images.pexels.com/photos/1091014/pexels-photo-1091014.jpeg?auto=compress&cs=tinysrgb&w=600",
     },
   ];
 
-  function handleBackground(index){
-        let data=background[index].image
-        dispatch(changeBackground({image : data}))
-        navigate("/")
+  function handleBackground(index) {
+    let data = background[index].image;
+    dispatch(changeBackground({ image: data }));
+    navigate("/");
   }
-
 
   return (
     <div className={style.parent}>
-      {background.map((item,index) => {
+      {background.map((item, index) => {
         return (
           <div className={style.parentimg} key={index}>
-            <img onClick={()=>handleBackground(index)} className={style.backimg} src={item.image} alt="" />
+            <img
+              onClick={() => handleBackground(index)}
+              className={style.backimg}
+              src={item.image}
+              alt=""
+            />
           </div>
         );
       })}

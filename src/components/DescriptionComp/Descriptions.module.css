@@ -9,7 +9,12 @@
     margin-top: 1.8rem;
     font-size: 1.2rem;
     border: none;
+    cursor: pointer;
 }
+.edit:hover{
+    background-color: lightgrey;
+    }
+    
 .head{
     font-size: 1.5rem;
     margin-top: 1.8rem;

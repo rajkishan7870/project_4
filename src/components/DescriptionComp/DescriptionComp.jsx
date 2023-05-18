@@ -26,7 +26,8 @@ export default function Descriptioncomp() {
           backgroundColor: "#091e420a",
           width: "45%",
           marginLeft: "25%",
-          marginTop:"2rem"
+          marginTop:"2rem",
+          boxShadow: ' 5px 4px 9px grey'
         }}
       >
         <CardContent sx={{ backgroundColor: "#091e420a" }}>

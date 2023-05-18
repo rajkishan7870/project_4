@@ -11,7 +11,7 @@ function DescriptionComment() {
     JSON.parse(localStorage.getItem("comments")) || []
   );
 
-  const [activity, setActivity] = useState({commentData});
+  const [activity, setActivity] = useState(false);
   const [edit, setEdit] = useState(null);
   const [toggle, setToggle] = useState(true);
   
@@ -21,7 +21,7 @@ function DescriptionComment() {
   var minutes = date.getMinutes();
   var ampm = hours >= 12 ? 'pm' : 'am';
   hours = hours % 12;
-  hours = hours ? hours : 12; // the hour '0' should be '12'
+  hours = hours ? hours : 12; 
   minutes = minutes < 10 ? '0'+minutes : minutes;
   var strTime = hours + ':' + minutes + ' ' + ampm;
   const showTime =
@@ -38,8 +38,18 @@ function DescriptionComment() {
     if (commentData === "") {
       alert("plz fill the input field");
       return;
-      // setCommentData("please fill the input field")
-    } else if (commentData && !toggle) {
+    }
+    let uniquedata = {
+      id: new Date().getTime().toString(),
+      name: commentData,
+      time: showTime,
+    };
+    let data = [...comments, uniquedata];
+    setComment(data);
+    localStorage.setItem("comments", JSON.stringify(data));
+    setCommentData("");
+    setTime(time);
+   if (commentData && !toggle) {
       setComment(
         comments.map((ele) => {
           if (ele.id === edit) {
@@ -52,16 +62,7 @@ function DescriptionComment() {
       setEdit(null);
       setToggle(true);
     }
-    let uniquedata = {
-      id: new Date().getTime().toString(),
-      name: commentData,
-      time: showTime,
-    };
-    let data = [...comments, uniquedata];
-    setComment(data);
-    localStorage.setItem("comments", JSON.stringify(data));
-    setCommentData("");
-    setTime(time);
+
   };
 
   const handleDelete = (index) => {
@@ -72,15 +73,12 @@ function DescriptionComment() {
     localStorage.setItem("comments", JSON.stringify(removeData));
   };
 
-  const handleEdit = (id) => {
+  const handleEdit = (index) => {
     let edittask = comments.find((ele) => {
-      return ele.id === id;
+      return ele.id === index;
     });
-    console.log(edittask);
-    // setComment(edittask)
-    // localStorage.setItem('comments',JSON.stringify(edittask))
     setCommentData(edittask.name);
-    setEdit(id);
+    setEdit(index);
     setToggle(false);
   };
 
@@ -122,6 +120,7 @@ function DescriptionComment() {
             </button>
           )}
         </>
+        
 
         {comments.map((ele) => {
           return (

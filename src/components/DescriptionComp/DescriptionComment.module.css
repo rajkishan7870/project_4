@@ -10,6 +10,7 @@
     cursor: pointer;
     background-color: #091e420a;
     font-weight: 400;
+    width: 5rem;
 }
 .mainbtn:hover{
     background-color: lightgrey;

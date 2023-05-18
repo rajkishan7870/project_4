@@ -11,7 +11,7 @@ function DescriptionComment() {
     JSON.parse(localStorage.getItem("comments")) || []
   );
 
-  const [activity, setActivity] = useState(false);
+  const [activity, setActivity] = useState({commentData});
   const [edit, setEdit] = useState(null);
   const [toggle, setToggle] = useState(true);
   

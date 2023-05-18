@@ -3,10 +3,13 @@ import style from "./Home.module.css";
 import Navbar from "../../components/NavComp/Navbar";
 import SideNav from "../../components/SideNavComp/SideNav";
 import List from "../../components/HomeComp/List";
+import { useSelector } from "react-redux";
 
 export default function Home() {
+  const selector = useSelector((store) => store.listSlice.background);
+
   return (
-    <div>
+    <div className={style.parent}>
       <div className={style.nav}>
         <Navbar />
       </div>
@@ -16,12 +19,16 @@ export default function Home() {
         </div>
 
         <div className={style.home}>
-          <img
-            src="https://media.istockphoto.com/id/1320306462/video/4k-abstract-luxury-black-grey-gradient-backgrounds-with-diagonal-golden-metallic-stripes.jpg?s=640x640&k=20&c=zwBGZfYlbYVMNcnJirViOlEOFHLkPJeg9z-HvfLr77Y="
+          <img className={selector.length>0 ? style.img : style.initial}
+            src={
+              selector.length > 0
+                ? selector[selector.length - 1].image
+                : "https://images.pexels.com/photos/907485/pexels-photo-907485.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+            }
             alt=""
           />
           <div className={style.card}>
-           <List/>
+            <List />
           </div>
         </div>
       </div>

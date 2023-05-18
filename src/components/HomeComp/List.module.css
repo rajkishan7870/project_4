@@ -19,7 +19,7 @@
     flex-direction: column;
     justify-content: flex-start;
     max-height: auto;
-    background-color: gray;
+    background-color: rgba(110, 112, 109, 0.603);
     border-radius: 5px;
     padding: 1%;
 }

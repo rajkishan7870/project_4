@@ -5,14 +5,14 @@ import ClearIcon from "@mui/icons-material/Clear";
 
 export default function Card({ cardInfo, handleEdit, handleDelete, onClick }) {
   return (
-    <div onClick={onClick} className={style.card}>
-      {cardInfo.title}
-      {
-        <div className={style.cardDelete}>
-          <EditIcon onClick={handleEdit} />
-          <ClearIcon onClick={handleDelete} />
-        </div>
-      }
+    <div className={style.parent}>
+      <div onClick={onClick} className={style.card}>
+        {cardInfo.title}
+      </div>
+      <div className={style.cardDelete}>
+        <EditIcon onClick={handleEdit} />
+        <ClearIcon onClick={handleDelete} />
+      </div>
     </div>
   );
 }

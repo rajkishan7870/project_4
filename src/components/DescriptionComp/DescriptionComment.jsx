@@ -88,8 +88,8 @@ setToggle(false)
        {
          comments.map((ele)=>{
             return (
-            <>
-            <div key={ele.id} className={styles.commments}>
+           <div key={ele.id} >
+            <div  className={styles.commments}>
             <input type='text'  value={ele.name} className={styles.commentinputs}  />
             </div>
            <div className={styles.buttons}>
@@ -98,7 +98,7 @@ setToggle(false)
            <button className={styles.delete} onClick={()=>handleEdit(ele.id)}>Edit</button>
 
            </div>
-            </>
+            </div>
 
             )
          })

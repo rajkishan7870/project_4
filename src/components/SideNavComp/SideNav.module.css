@@ -1,8 +1,10 @@
 .sidenav{
     width: 250px;
-    height: 100vh;
-    margin-left: 0;
-    background-color: rgb(89, 109, 62)
+    height: 100%;
+    position: sticky;
+    background-color: rgb(5, 103, 82);
+
+    /* background-color: rgb(89, 109, 62) */
 }
 /* .navwrap{
     background-color: #de2626;

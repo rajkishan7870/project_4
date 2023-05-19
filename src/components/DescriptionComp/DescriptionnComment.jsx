@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import styles from "./DescriptionComment.module.css";
+import styles from "./DescriptionnComment.module.css";
 import TocIcon from "@mui/icons-material/Toc";
 import Avatar from "@mui/material/Avatar";
 import Stack from "@mui/material/Stack";
@@ -118,8 +118,9 @@ function DescriptionnComment() {
             </button>
           )}
         </>
+        {activity ?
 
-        {comments.map((ele) => {
+        comments.map((ele) => {
           return (
             <>
               <div key={ele.id} className={styles.commments}>
@@ -160,7 +161,9 @@ function DescriptionnComment() {
               </div>
             </>
           );
-        })}
+        })
+        : ""
+      }
       </div>
     </>
   );

@@ -1,14 +1,18 @@
-import React from "react";
+import React,{useState} from "react";
 import style from "./Home.module.css";
 import Navbar from "../../components/NavComp/Navbar";
 import SideNav from "../../components/SideNavComp/SideNav";
 import List from "../../components/HomeComp/List";
 import { useSelector } from "react-redux";
 
+
+
+
 export default function Home() {
   const selector = useSelector((store) => store.listSlice.background);
 
   return (
+    
     <div className={style.parent}>
       <div className={style.nav}>
         <Navbar />
@@ -17,7 +21,7 @@ export default function Home() {
         <div>
           <SideNav />
         </div>
-
+        
         <div className={style.home}>
           <img className={selector.length>0 ? style.img : style.initial}
             src={
@@ -27,11 +31,16 @@ export default function Home() {
             }
             alt=""
           />
+         
           <div className={style.card}>
-            <List />
+            <List  />
           </div>
+          
+          
         </div>
+     
       </div>
     </div>
+    
   );
 }

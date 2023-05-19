@@ -6,14 +6,11 @@
     width: 100%;
     grid-template-columns: repeat(3, 2fr);
     gap: 10px;
-background-color: #fadfdf;
+    background-color: #fadfdf;
     /* grid-auto-rows: minmax(100px, auto); */
     /* height: 80%; */
     /* grid-template-columns: 50; */
-    /* flex-direction: row; */
-    /* align-items: flex-start; */
-    /* column-gap: 10px; */
-    /* border: 1px solid gray; */
+    
 }
 .parentimg{
     width: 60%;

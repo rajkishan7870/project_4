@@ -15,9 +15,10 @@ export default function Add({ type, cardid }) {
   function handleSubmit(e) {
     e.preventDefault();
     if (type) {
-      dispatch(addCard({ id: Math.random(), title: input, cardid: cardid }));
+      dispatch(addCard({ id: Math.floor(Math.random()*100), title: input, cardid: cardid }));
     } else {
-      dispatch(addList({ id: Math.random(), title: input }));
+      console.log("added")
+      dispatch(addList({ id: Math.floor(Math.random()*100), title: input }));
     }
     setInput("");
   }

@@ -14,13 +14,7 @@ export default function Card({
 }) {
   const dispatch = useDispatch();
   return (
-    <Draggable draggableId={String(cardInfo.id)} index={cardInfo.cardid}>
-      {(provided) => (
-        <div
-          ref={provided.innerRef}
-          {...provided.draggableProps}
-          {...provided.dragHandleProps}
-        >
+    
           <div className={style.parent}>
           <div onClick={onClick} className={style.card}>
             {input ? (
@@ -40,8 +34,6 @@ export default function Card({
             <ClearIcon onClick={handleDelete} />
           </div>
           </div>
-        </div>
-      )}
-    </Draggable>
+       
   );
 }

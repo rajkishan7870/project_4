@@ -3,6 +3,7 @@ import { Button, TextField } from "@mui/material";
 import { addList, addCard } from "../../redux/slice";
 import { useDispatch } from "react-redux";
 import style from "./Add.module.css";
+import ModeEditIcon from '@mui/icons-material/ModeEdit';
 
 export default function Add({ type, cardid }) {
   const [input, setInput] = useState("");
@@ -61,6 +62,7 @@ export default function Add({ type, cardid }) {
               >
                 {type ? "Add card" : "Add list"}
               </Button>
+              
               <div className={style.cancel} onClick={handleCancel}>
                 ❌
               </div>

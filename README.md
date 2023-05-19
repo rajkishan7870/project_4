@@ -61,7 +61,10 @@ todos :
 ```
 
 Collaborators-                                                                                                                                                         
-.Kishan                                                                                                                                                           
+.Kishan Kumar                                                                                                                                                           
 .Deepak kumar                                                                                                                                     
 .Isha Gupta                                                                                                                                   
-.Madhushraba
+.Madhushraba Das
+
+
+Deployed link : https://kan-ban.onrender.com

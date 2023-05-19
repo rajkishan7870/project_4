@@ -24,10 +24,10 @@ const listSlice = createSlice({
       });
     },
     editCard: (state, action) => {
-      console.log(action.payload);
+      console.log("data in edit",action.payload);
       for (let i = 0; i < state.list.length; i++) {
         if (state.list[i].id === action.payload.cardid) {
-          state.list[i].children[action.payload.index].title = action.payload;
+          state.list[i].children[action.payload.index].title = action.payload.title;
         }
       }
     },

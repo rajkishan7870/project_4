@@ -42,57 +42,32 @@ const listSlice = createSlice({
       state.background.push(action.payload);
     },
 
-    moveCardToAnotherList: (state, action) => {
-      const { cardID, sourceListID, destinationListID } = action.payload;
-      const cardIndex = state.list.findIndex((task) => task.cardID === cardID);
-
-      if (cardIndex !== -1) {
-        state.list[cardIndex].listID = destinationListID;
-
-        if (sourceListID && sourceListID !== destinationListID) {
-          const sourceList = state.list.filter((task) => task.listID === sourceListID);
-          const sourceListIndex = state.list.findIndex((task) => task.listID === sourceListID);
-          const sourceCardIndex = sourceList.findIndex((task) => task.cardID === cardID);
-
-          if (sourceCardIndex !== -1) {
-            sourceList.splice(sourceCardIndex, 1);
-          }
-          state.value.splice(sourceListIndex, 1, sourceList)
+    removechild : (state,action)=>{
+      const { childIndex, parentId } = action.payload;
+      state.list.map((e) => {
+        if (e.id === parentId) {
+          e.children.splice(childIndex, 1);
         }
-      }
+      });
     },
 
-    reorderCards: (state, action) => {
-      console.log(current(state).list)
-      console.log(action.payload)
+    reassign : (state,action)=>{
+      const { destination, add, insertIndex } = action.payload;
 
-      const tempState=[...state.list]
-      const { targetListID, startIndex, endIndex } = action.payload;
-      // console.log(startIndex, endIndex)
-      const requiredList= tempState.find((list)=>list.id===targetListID)
-      const requiredListIndex=tempState.findIndex((list)=>list.id==targetListID)
-
-      // console.log(temp, "temp")
-      console.log("list", requiredList)
-      const [reorderedCard]=requiredList.children.splice(startIndex,1)
-      requiredList.children.splice(endIndex, 0, reorderedCard)
-      tempState.splice(requiredListIndex, 1, requiredList)
-      // console.log(tempState)
-      state.list=tempState
-      console.log(current(state).list)
-      
-      //Not working
-      // requiredList.cards[startIndex]=requiredList.cards[endIndex]
-      // temp.splice(endIndex, 1, )
-      // requiredList.cards[endIndex]=temp
-      // const [removedCard] = cards.splice(startIndex, 1);
-      // cards.splice(endIndex, 0, removedCard);
-
+     state.list.map((e)=>{
+      if(e.id==destination){
+        e.children.splice(insertIndex,0,add)
+      }
+     })
+       
+       
     }
+
+    
   },
 });
 
-export const { addList, addCard, editCard, removeCard, changeBackground, moveCardToAnotherList, reorderCards } =
+export const { addList, addCard, editCard, removeCard, changeBackground, removechild, reassign } =
   listSlice.actions;
 
 export default listSlice.reducer;

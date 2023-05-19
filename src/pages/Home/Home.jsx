@@ -4,12 +4,45 @@ import Navbar from "../../components/NavComp/Navbar";
 import SideNav from "../../components/SideNavComp/SideNav";
 import List from "../../components/HomeComp/List";
 import { useSelector } from "react-redux";
-
-
+import { useDispatch } from "react-redux";
+import { DragDropContext } from "react-beautiful-dnd";
+import { removechild, reassign } from "../../redux/slice";
 
 
 export default function Home() {
   const selector = useSelector((store) => store.listSlice.background);
+  const listData = useSelector((store)=>store.listSlice.list)
+  const dispatch = useDispatch();
+
+  const dragEndHandler = (result) => {
+
+    console.log("result",result)
+    const sourceId = result?.source?.droppableId;
+    const destinationId = result?.destination?.droppableId;
+
+    let holder1 = {}
+    listData.map((list) => {
+      if (list.id == sourceId) {
+        holder1 = list.children[result.source.index];
+        dispatch(
+          removechild({
+            childIndex: result.source.index,
+            parentId: list.id,
+          })
+        );
+        dispatch(
+          reassign({
+            destination: destinationId,
+            add: holder1,
+            insertIndex: result.destination.index
+          })
+        );
+      }
+    });
+
+
+
+  } 
 
   return (
     
@@ -31,12 +64,12 @@ export default function Home() {
             }
             alt=""
           />
-         
+         <DragDropContext onDragEnd={dragEndHandler}>
           <div className={style.card}>
             <List  />
           </div>
           
-          
+          </DragDropContext>
         </div>
      
       </div>

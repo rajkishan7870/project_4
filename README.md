@@ -67,4 +67,4 @@ Collaborators-
 .Madhushraba Das
 
 
-Deployed link : https://kan-ban.onrender.com
+Deployed link : https://kan-ban-new.onrender.com

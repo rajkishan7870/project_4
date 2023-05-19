@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { removeCard } from "../../redux/slice";
 import style from "./List.module.css";
 import { useNavigate } from "react-router";
+import { editCard } from "../../redux/slice";
 import { Droppable, DragDropContext } from "react-beautiful-dnd";
 import { moveCardToAnotherList, reorderCards } from "../../redux/slice";
 
@@ -14,8 +15,9 @@ export default function List() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  function handleClick(card) {
+  function handleClick(card,index) {
     navigate(`/description/${card.title}`);
+    dispatch(editCard({index : index, title :""}))
   }
   
   function handleDelete(index, card) {
@@ -68,11 +70,11 @@ export default function List() {
                     <div className={style.list}>{list.title}</div>
                     <div className={style.card}>
                       {list?.children?.length > 0 &&
-                        list?.children.map((card) => {
+                        list?.children.map((card,index) => {
                           return (
                             <div key={card.id}>
                               <Card
-                                onClick={() => handleClick(card)}
+                                onClick={() => handleClick(card,index)}
                                 cardInfo={card}
                                 index={index}
                                 handleDelete={() => handleDelete(index, card)}

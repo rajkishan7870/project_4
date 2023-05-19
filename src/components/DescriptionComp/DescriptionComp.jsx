@@ -9,14 +9,24 @@ import DescriptComment from "./DescriptComment";
 import ClearIcon from "@mui/icons-material/Clear";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { editCard } from "../../redux/slice";
 export default function Descriptioncomp() {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const params = useParams();
+  console.log("param", params)
+
   const [update, setUpdate] = useState([params.id]);
 
   function handleClose() {
     navigate("/");
   }
+
+  function handleSave(){
+    dispatch(editCard({title : update}))
+  }
+
   return (
     <div>
       <Card
@@ -42,6 +52,7 @@ export default function Descriptioncomp() {
               onChange={(e) => setUpdate(e.target.value)}
               className={styles.input}
             />{" "}
+            <Button onClick={handleSave} >Save</Button>
           </span>
           <p className={styles.titlepara}>
             in list{" "}

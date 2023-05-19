@@ -15,9 +15,7 @@ const [edit, setEdit] = useState(false);
 
 const handleCancelEdit = () => {
  setEdit(!edit);
-//  if(descriptionvalue===""){
-//   setDescriptionvalue("");
-//  }
+
 };
   return (
     <div >

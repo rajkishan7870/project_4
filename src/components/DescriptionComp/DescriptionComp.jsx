@@ -5,7 +5,7 @@ import VisibilityIcon from "@mui/icons-material/Visibility";
 import styles from "./Descriptioncomp.module.css";
 import SubtitlesIcon from "@mui/icons-material/Subtitles";
 import Descriptions from "./Descriptions";
-import DescriptionnComment from "./DescriptionnComment";
+import DescriptComment from "./DescriptComment";
 import ClearIcon from "@mui/icons-material/Clear";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
@@ -54,7 +54,7 @@ export default function Descriptioncomp() {
 
           <Descriptions />
 
-          <DescriptionnComment />
+          <DescriptComment />
         </CardContent>
       </Card>
     </div>

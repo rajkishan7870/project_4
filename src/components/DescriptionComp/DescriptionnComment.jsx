@@ -5,7 +5,7 @@ import TocIcon from "@mui/icons-material/Toc";
 import Avatar from "@mui/material/Avatar";
 import Stack from "@mui/material/Stack";
 
-function DescriptionComment() {
+function DescriptionnComment() {
   const [commentData, setCommentData] = useState("");
   const [comments, setComment] = useState(
     JSON.parse(localStorage.getItem("comments")) || []
@@ -14,24 +14,23 @@ function DescriptionComment() {
   const [activity, setActivity] = useState(false);
   const [edit, setEdit] = useState(null);
   const [toggle, setToggle] = useState(true);
-  
 
   const date = new Date();
   var hours = date.getHours();
   var minutes = date.getMinutes();
-  var ampm = hours >= 12 ? 'pm' : 'am';
+  var ampm = hours >= 12 ? "pm" : "am";
   hours = hours % 12;
-  hours = hours ? hours : 12; 
-  minutes = minutes < 10 ? '0'+minutes : minutes;
-  var strTime = hours + ':' + minutes + ' ' + ampm;
+  hours = hours ? hours : 12;
+  minutes = minutes < 10 ? "0" + minutes : minutes;
+  var strTime = hours + ":" + minutes + " " + ampm;
   const showTime =
     date.toLocaleString("default", { month: "long" }) +
     " " +
     date.getDate() +
     " at " +
-   strTime;
+    strTime;
 
-    const [time, setTime] = useState(showTime);
+  const [time, setTime] = useState(showTime);
 
   const handelSave = (e) => {
     e.preventDefault();
@@ -49,7 +48,7 @@ function DescriptionComment() {
     localStorage.setItem("comments", JSON.stringify(data));
     setCommentData("");
     setTime(time);
-   if (commentData && !toggle) {
+    if (commentData && !toggle) {
       setComment(
         comments.map((ele) => {
           if (ele.id === edit) {
@@ -62,7 +61,6 @@ function DescriptionComment() {
       setEdit(null);
       setToggle(true);
     }
-
   };
 
   const handleDelete = (index) => {
@@ -120,14 +118,12 @@ function DescriptionComment() {
             </button>
           )}
         </>
-        
 
         {comments.map((ele) => {
           return (
             <>
-           
               <div key={ele.id} className={styles.commments}>
-              <p className={styles.time}>{ele.time}</p>
+                <p className={styles.time}>{ele.time}</p>
                 <input
                   type="text"
                   value={ele.name}
@@ -138,7 +134,11 @@ function DescriptionComment() {
                 <Stack
                   direction="row"
                   spacing={2}
-                  sx={{ marginBottom: "1.3rem",marginTop:"-5.1rem", marginLeft: "-1.5rem" }}
+                  sx={{
+                    marginBottom: "1.3rem",
+                    marginTop: "-5.1rem",
+                    marginLeft: "-1.5rem",
+                  }}
                 >
                   <Avatar
                     alt="Remy Sharp"
@@ -157,7 +157,6 @@ function DescriptionComment() {
                 >
                   Edit
                 </button>
-               
               </div>
             </>
           );
@@ -167,4 +166,4 @@ function DescriptionComment() {
   );
 }
 
-export default DescriptionComment;
+export default DescriptionnComment;

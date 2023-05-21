@@ -25,13 +25,26 @@ export default function Navbar() {
   return (
     <div className={style.parent}>
       <div className={style.parentContFirst}>
-        <Button sx={{ color: "white", textTransform: "none" }}>
+        <Button sx={{
+          color: "white", 
+          textTransform: "none",
+          "&:hover": {
+            bgcolor: "lightgray",
+          },
+          
+          }}>
           <AnalyticsIcon />
           KAN-BAN
         </Button>
         <Basicmenu name={"Recent"} />
         <Button
-          sx={{ color: "white", textTransform: "none" }}
+          sx={{ 
+            color: "white",
+            textTransform: "none",
+            "&:hover": {
+              bgcolor: "lightgray",
+            },
+          }}
           onClick={handleBackground}
         >
           Background image

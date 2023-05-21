@@ -5,7 +5,10 @@ import Home from './pages/Home/Home';
 import Descriptioncomp from './components/DescriptionComp/DescriptionComp';
 import Background from './components/background/Background';
 
+
+
 function App() {
+
   return (
     <div className="App">
      <Routes>

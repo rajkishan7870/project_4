@@ -17,7 +17,7 @@ export default function Add({ type, cardid }) {
     if (type) {
       dispatch(addCard({ id: Math.floor(Math.random()*100), title: input, cardid: cardid }));
     } else {
-      console.log("added")
+   
       dispatch(addList({ id: Math.floor(Math.random()*100), title: input }));
     }
     setInput("");

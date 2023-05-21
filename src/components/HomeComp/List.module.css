@@ -10,6 +10,7 @@
   }
 .list{
     display: flex;
+    justify-content: space-between;
     min-width: 20%;
     padding: 5%;  
 }

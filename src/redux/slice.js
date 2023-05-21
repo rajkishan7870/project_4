@@ -1,4 +1,4 @@
-import { createSlice, current } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
 const listSlice = createSlice({
   name: "listSlice",
@@ -8,7 +8,6 @@ const listSlice = createSlice({
   },
   reducers: {
     addList: (state, action) => {
-      console.log(action.payload)
       state.list.push(action.payload);
     },
     addCard: (state, action) => {
@@ -23,6 +22,10 @@ const listSlice = createSlice({
         }
       });
     },
+    removeList: (state,action)=>{
+      state.list.splice(action.payload,1);
+    },
+
     editCard: (state, action) => {
       console.log("data in edit",action.payload);
       for (let i = 0; i < state.list.length; i++) {
@@ -42,6 +45,10 @@ const listSlice = createSlice({
       state.background.push(action.payload);
     },
 
+    clearBoard : (state,action)=>{
+      state.list = [];
+    },
+
     removechild : (state,action)=>{
       const { childIndex, parentId } = action.payload;
       state.list.map((e) => {
@@ -54,12 +61,14 @@ const listSlice = createSlice({
     reassign : (state,action)=>{
       const { destination, add, insertIndex } = action.payload;
 
-     state.list.map((e)=>{
-      if(e.id==destination){
-        e.children.splice(insertIndex,0,add)
+     state.list.map((list)=>{
+      if(list.id==destination){
+        list.children.splice(insertIndex,0,add)
+        // list.children.map((ele)=>{
+        //   return Object.assign({}, ele, {id:list.id, title : add , cardid : list.id});
+        // })
       }
-     })
-       
+     }) 
        
     }
 
@@ -67,7 +76,7 @@ const listSlice = createSlice({
   },
 });
 
-export const { addList, addCard, editCard, removeCard, changeBackground, removechild, reassign } =
+export const { addList, addCard,removeList, editCard, removeCard, changeBackground,clearBoard, removechild, reassign } =
   listSlice.actions;
 
 export default listSlice.reducer;

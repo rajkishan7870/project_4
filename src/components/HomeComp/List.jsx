@@ -29,10 +29,9 @@ export default function List() {
     dispatch(editCard({ index: index, title: "" }));
   }
 
-  function handleDelete(index, card) {
-    console.log("index",index)
-    console.log("cardid",card.cardid)
-    dispatch(removeCard({ index: index, cardid: card.cardid }));
+  function handleDelete(card) {
+   
+    dispatch(removeCard({  id: card.id }));
   }
 
   return (
@@ -71,7 +70,7 @@ export default function List() {
                                   onClick={() => handleClick(card, index)}
                                   cardInfo={card}
                                   index={index}
-                                  handleDelete={() => handleDelete(index, card)}
+                                  handleDelete={() => handleDelete(card)}
                                   input={input}
                                 />
                               </div>

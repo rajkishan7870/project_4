@@ -35,11 +35,14 @@ const listSlice = createSlice({
       }
     },
     removeCard: (state, action) => {
-      for (let i = 0; i < state.list.length; i++) {
-        if (state.list[i].id === action.payload.cardid) {
-          state.list[i].children.splice(action.payload.index, 1);
-        }
-      }
+      const {id} = action.payload
+      state?.list?.map((list) => {
+        list?.children?.map((child, index) => {
+          if (child.id == id) {
+            list?.children.splice(index, 1);
+          }
+        });
+      })
     },
     changeBackground: (state, action) => {
       state.background.push(action.payload);
@@ -63,10 +66,11 @@ const listSlice = createSlice({
 
      state.list.map((list)=>{
       if(list.id==destination){
-        list.children.splice(insertIndex,0,add)
-        // list.children.map((ele)=>{
-        //   return Object.assign({}, ele, {id:list.id, title : add , cardid : list.id});
-        // })
+        if ("children" in list) {
+          list.children.splice(insertIndex, 0, add);
+        }else{
+          list.children=[add]
+        }
       }
      }) 
        

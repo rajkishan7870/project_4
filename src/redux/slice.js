@@ -55,7 +55,7 @@ const listSlice = createSlice({
       const { destination, add, insertIndex } = action.payload;
 
      state.list.map((e)=>{
-      if(e.id==destination){
+      if(e.id===destination){
         e.children.splice(insertIndex,0,add)
       }
      })

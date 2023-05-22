@@ -1,11 +1,8 @@
 import React from "react";
 import AnalyticsIcon from "@mui/icons-material/Analytics";
-import { Button, TextField, Avatar } from "@mui/material";
+import { Button, Avatar } from "@mui/material";
 import Basicmenu from "./Menu";
 import style from "./Navbar.module.css";
-import NotificationsActiveIcon from "@mui/icons-material/NotificationsActive";
-import InfoIcon from "@mui/icons-material/Info";
-import TipsAndUpdatesIcon from "@mui/icons-material/TipsAndUpdates";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { clearBoard } from "../../redux/slice";

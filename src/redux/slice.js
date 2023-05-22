@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, current } from "@reduxjs/toolkit";
 
 const listSlice = createSlice({
   name: "listSlice",
@@ -30,7 +30,7 @@ const listSlice = createSlice({
       console.log("data in edit",action.payload);
       for (let i = 0; i < state.list.length; i++) {
         if (state.list[i].id === action.payload.cardid) {
-          state.list[i].children[action.payload.index].title = action.payload.title;
+          state.list[i].children[action.payload.index].title = "kishan";
         }
       }
     },
@@ -74,9 +74,7 @@ const listSlice = createSlice({
       }
      }) 
        
-    }
-
-    
+    }  
   },
 });
 
